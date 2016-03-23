@@ -3,7 +3,7 @@ from threading import Thread
 import pyttsx
 import time
 
-wait_time = 2
+wait_time = 1
 
 engine = pyttsx.init()
 text_queue = Queue(10)
