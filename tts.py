@@ -22,3 +22,5 @@ class Consumer(Thread):
             engine.say(text)
             engine.runAndWait()
             time.sleep(wait_time)
+
+

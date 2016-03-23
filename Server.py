@@ -11,5 +11,5 @@ def speak(text):
 
 
 if __name__ == '__main__':
-    tts.Consumer.start()
+    tts.Consumer().start()
     app.run(debug=True, host='0.0.0.0')
