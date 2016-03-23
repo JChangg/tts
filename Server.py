@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 @app.route('/speak/<text>', methods=['POST', 'GET'])
 def speak(text):
-    pos = tts.add_text(text)
-    return jsonify({"content":text, "position":pos})
+    tts.add_text(text)
+    return jsonify({"content":text})
 
 
 if __name__ == '__main__':
