@@ -11,6 +11,7 @@ text_queue = Queue(10)
 
 def add_text(text):
     text_queue.put(text)
+    return len(text_queue)
 
 
 class Consumer(Thread):
