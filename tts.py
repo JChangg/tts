@@ -1,20 +1,20 @@
-from Queue import Queue
+import Queue
 from threading import Thread
 import pyttsx
 import time
 
 wait_time = 0.5
 
-
-
-
-text_queue = Queue(10)
+text_queue = Queue.Queue(5)
 
 
 
 def add_text(text):
-    text_queue.put(text)
-
+	try:
+		text_queue.put(text, timeout=1)	
+		return text_queue.qsize()
+	except Queue.Full:
+		return -1
 class Consumer(Thread):
 	def __init__(self):
 		super(Consumer, self).__init__()
