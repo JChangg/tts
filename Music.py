@@ -46,5 +46,5 @@ class MusicPlayer(Thread):
             pygame.mixer.music.load(name)
             pygame.mixer.music.play()
 
-            while pygame.mixer.music.get_busy() or self.paused:
+            while pygame.mixer.music.get_busy() or self.pause:
                 pygame.time.Clock().tick(10)
