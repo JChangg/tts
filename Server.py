@@ -48,4 +48,4 @@ def resume():
 if __name__ == '__main__':
     tts_server.start()
     music_player.start()
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=80)
