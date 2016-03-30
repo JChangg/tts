@@ -18,6 +18,33 @@ def speak(text):
         return jsonify({}), 503
 
 
+@app.route('/song/add/<file_name>', methods=['POST', 'GET'])
+def song_add(file_name):
+    music_player.add_song(file_name)
+    return jsonify({'queued': file_name})
+
+
+@app.route('/song/skip', methods=['POST', 'GET'])
+def skip():
+    skipped = music_player.current
+    music_player.skip_song()
+    return jsonify({'skipped': skipped})
+
+
+@app.route('/song/pause', methods=['POST', 'GET'])
+def pause():
+    paused = music_player.current
+    music_player.pause_song()
+    return jsonify({'paused': paused})
+
+
+@app.route('/song/resume', methods=['POST', 'GET'])
+def resume():
+    un_paused = music_player.current
+    music_player.un_pause_song()
+    return jsonify({'resumed': un_paused})
+
+
 if __name__ == '__main__':
     tts_server.start()
     music_player.start()

@@ -4,7 +4,7 @@ from threading import Thread
 
 import pygame
 
-DIR = os.path.dirname(__file__)
+DIR = os.path.join(os.path.dirname(__file__), 'songs')
 
 
 class MusicPlayer(Thread):
@@ -25,6 +25,7 @@ class MusicPlayer(Thread):
             'local_name': os.path.join(self.dir, song_file),
             'alias': alias,
         }
+
         self.queue.put(song_info)
 
     def skip_song(self):
@@ -37,6 +38,7 @@ class MusicPlayer(Thread):
     def un_pause_song(self):
         pygame.mixer.music.unpause()
         self.pause = False
+
 
     def run(self):
         while True:
