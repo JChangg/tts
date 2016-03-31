@@ -4,7 +4,7 @@ import Speech
 
 app = Flask(__name__)
 
-tts_server = Speech.TextToSpeech()
+query_server = Speech.QueryHandler()
 
 
 @app.route('/speak/<text>', methods=['POST', 'GET'])
@@ -17,5 +17,5 @@ def speak(text):
 
 
 if __name__ == '__main__':
-    tts_server.start()
+    query_server.start()
     app.run(debug=True, host='0.0.0.0', port=80)
