@@ -9,7 +9,7 @@ query_server = Speech.QueryHandler()
 
 @app.route('/speak/<text>', methods=['POST', 'GET'])
 def speak(text):
-    pos = tts_server.add_text(text)
+    pos = query_server.add_text(text)
     if pos >= 0:
         return jsonify({"content": text, "pos": pos})
     else:
